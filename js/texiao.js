@@ -1,0 +1,131 @@
+$(function(){
+	$(".fa-plus").eq(0).click(function(){
+		$(".one").css("display","block");
+		$("#home").css("display","none");
+		$("#navigation").css("display","none");
+		$("#about").css("display","none");
+		$("#gallery").css("display","none");
+		$("#contact").css("display","none");
+		$(".site-footer").css("display","none");
+	});
+	$(".col-f-2 a").click(function(){
+		$(".one").css("display","none");
+		$(".three").css("display","none");
+		$(".fore").css("display","none");
+		$(".fire").css("display","none");
+		$("#home").css("display","block");
+		$("#navigation").css("display","block");
+		$("#about").css("display","block");
+		$("#gallery").css("display","block");
+		$("#contact").css("display","block");
+		$(".site-footer").css("display","block");
+	})
+	$(".fa-plus").eq(1).click(function(){
+		$(".three").css("display","block");
+		$("#home").css("display","none");
+		$("#navigation").css("display","none");
+		$("#about").css("display","none");
+		$("#gallery").css("display","none");
+		$("#contact").css("display","none");
+		$(".site-footer").css("display","none");
+	});
+	$(".fa-plus").eq(2).click(function(){
+		$(".fore").css("display","block");
+		$("#home").css("display","none");
+		$("#navigation").css("display","none");
+		$("#about").css("display","none");
+		$("#gallery").css("display","none");
+		$("#contact").css("display","none");
+		$(".site-footer").css("display","none");
+	});
+	$(".fa-plus").eq(3).click(function(){
+		$(".fire").css("display","block");
+		$("#home").css("display","none");
+		$("#navigation").css("display","none");
+		$("#about").css("display","none");
+		$("#gallery").css("display","none");
+		$("#contact").css("display","none");
+		$(".site-footer").css("display","none");
+	});
+	$(".fa-plus").eq(4).click(function(){
+		alert("敬请期待");
+	});
+	$(".fa-plus").eq(5).click(function(){
+		alert("敬请期待");
+	});
+	$(".fa-plus").eq(6).click(function(){
+		alert("敬请期待");
+	});
+	$(".fa-plus").eq(7).click(function(){
+		alert("敬请期待");
+	});
+	$("#me").click(function(){
+		alert("敬请期待");
+	})
+
+
+	function lunbo(father,time){
+	$(father+">.imgbox>a").hide().eq(0).show();
+	var num=0;
+	function move(){
+		num++;
+		if(num >= $(father+">.imgbox>a").length){
+			num=0;
+		}
+		$(father+">.imgbox>a").fadeOut(100).eq(num).fadeIn(300);
+		$(father+">.lunbo>div").removeClass("active").eq(num).addClass("active")
+	}
+	var t=setInterval(move,time)
+
+	$(father+">.lunbo>div").mouseover(function(){
+		$(father+">.imgbox>a").stop(true,true)
+		var index=$(this).index();
+		$(father+">.lunbo>div").removeClass().eq(index).addClass("active")
+		$(father+">.imgbox>a").fadeOut(100).eq(index).fadeIn(300)
+		num=index;
+	})
+	$(father+".banner").mouseover(function(){
+		clearInterval(t);
+		$(father+">.btn").css({
+			display:"block"
+		})
+		$(father+">.rig").css({
+			display:"block"
+		})
+	})
+	$(father+".banner").mouseout(function(){
+		t=setInterval(move,3000)
+		$(father+">.btn").css({
+			display:"none"
+		})
+		$(father+">.rig").css({
+			display:"none"
+		})
+	})
+	$(father+">.btn").click(function(){
+		yidong("left")
+	})
+	$(father+">.rig").click(function(){
+		yidong("right")
+	})
+	function yidong(type){
+		type=type||"right"
+		if(type=="left"){
+			num--
+			if(num<0){
+				num=$(father+">.imgbox>a").length-1
+			}
+		}
+		if(type=="right"){
+			num++;
+			if(num>$(father+">.imgbox>a").length-1){
+				num=0
+			}
+		}
+		$(father+">.imgbox>a").fadeOut(100).eq(num).fadeIn(300)
+		$(father+">.lunbo>div").removeClass().eq(num).addClass("active")
+	}
+}
+	lunbo("#banner1",3000);
+	lunbo("#banner2",3000);
+})
