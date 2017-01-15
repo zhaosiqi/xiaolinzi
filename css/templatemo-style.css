@@ -885,6 +885,9 @@ html,body {
         background-size: 100%;
         background-position: 0px 0px;
     }
+    .xinde{
+        margin-left: 150px;
+    }
 }
 @media screen and (max-width:550px) {
     .one{
@@ -905,4 +908,24 @@ html,body {
         background-position: 0px 0px;
     }
 }
+.lilin{
+    width:100%;height:100%;
+}
+.hidden-xs{
+    width: 150px;
+    height: 50px;
+}
+.hidden-xs a{
+    background: orange;
+    padding: 0;
+    margin: 0;
+    width: 100%;height: 100%;
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+    color:#fff; 
+}
+
+
 
